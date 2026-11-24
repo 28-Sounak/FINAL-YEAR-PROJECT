@@ -1,0 +1,10 @@
+Best params: {'lr__C': 0.01, 'lr__class_weight': 'balanced'}
+
+              precision    recall  f1-score   support
+
+           0       0.64      0.52      0.57       400
+           1       0.42      0.55      0.48       256
+
+    accuracy                           0.53       656
+   macro avg       0.53      0.53      0.53       656
+weighted avg       0.56      0.53      0.54       656
