@@ -1,0 +1,10 @@
+Best params: {'knn__n_neighbors': 3, 'knn__weights': 'distance'}
+
+              precision    recall  f1-score   support
+
+           0       0.66      0.76      0.70       400
+           1       0.50      0.38      0.43       256
+
+    accuracy                           0.61       656
+   macro avg       0.58      0.57      0.57       656
+weighted avg       0.59      0.61      0.60       656

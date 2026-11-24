@@ -35,3 +35,13 @@ grid.fit(X_train, y_train)
 print(grid.best_params_)
 
 print(classification_report(y_test, grid.predict(X_test)))
+
+report = classification_report(y_test, grid.predict(X_test))
+
+with open("results/knn_results.txt", "w") as f:
+    f.write(f"Best params: {grid.best_params_}\n\n")
+    f.write(report)
+
+#For table...
+row = {"model": "KNN", "accuracy": 0.61, "f1_potable": 0.43}
+pd.DataFrame([row]).to_csv("results/model_comparison.csv", mode="a", index=False, header=False)
