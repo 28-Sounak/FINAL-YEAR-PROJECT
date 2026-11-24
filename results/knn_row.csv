@@ -1,0 +1,2 @@
+model,accuracy,precision_potable,recall_potable,f1_potable
+KNN,0.6097560975609756,0.5,0.375,0.42857142857142855

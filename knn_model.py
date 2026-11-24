@@ -36,12 +36,36 @@ print(grid.best_params_)
 
 print(classification_report(y_test, grid.predict(X_test)))
 
-report = classification_report(y_test, grid.predict(X_test))
+report = classification_report(y_test, grid.predict(X_test), output_dict=True)
 
-with open("results/knn_results.txt", "w") as f:
+#Saving the output terminal 
+
+"""with open("results/knn_results.txt", "w") as f:
     f.write(f"Best params: {grid.best_params_}\n\n")
-    f.write(report)
+    f.write(report)"""
+
+# Saving the key numbers for the final comparison table
+
+row = {
+    "model": "KNN",
+    "accuracy": report["accuracy"],
+    "precision_potable": report["1"]["precision"],
+    "recall_potable": report["1"]["recall"],
+    "f1_potable": report["1"]["f1-score"],
+}
+
+pd.DataFrame([row]).to_csv("results/knn_row.csv", index=False)
 
 #For table...
 row = {"model": "KNN", "accuracy": 0.61, "f1_potable": 0.43}
 pd.DataFrame([row]).to_csv("results/model_comparison.csv", mode="a", index=False, header=False)
+
+#Saving the key numbers for the final comparison table
+
+row = {
+    "model": "KNN",
+    "accuracy": report["accuracy"],
+    "precision_potable": report["1"]["precision"],
+    "recall_potable": report["1"]["recall"],
+    "f1_potable": report["1"]["f1-score"],
+}
